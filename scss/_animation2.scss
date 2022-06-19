@@ -1,0 +1,69 @@
+.animation2{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+    .container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        .card{
+           position: relative;
+           width: 220px;
+           height: 250px;
+           background: #2a2a2a;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           .percent{
+            position: relative;
+            width: 150px;
+            height: 150px;
+            transform: rotate(270deg);
+            .dot{
+                position: absolute;
+                inset: 5px;
+                //top bottom left right的簡寫
+                // !!懂了，前面留5px的寬度，就是為了這個
+                z-index: 10;//為了讓它在上方
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    transform: translateX(-50%);//讓物件的x軸移動-50%
+                    background-color: var(--clr);
+                    border-radius: 50%;
+                    top: -5px; //這裡的會受前面rotate的影響
+                    left: 50%; //這裡的會受前面rotate的影響
+
+                }
+            }
+            svg{
+                position: relative;
+                circle{
+                    width: 100%;
+                    height: 100%;
+                    fill:transparent;//svg bg transparen是全透明黑色
+                    stroke-width: 2;//svg border
+                    stroke: #191919;//svg border
+                    transform: translate(5px,5px);
+                    &:nth-child(2){
+                        stroke: var(--clr);
+                        stroke-dasharray: 440;//虛線，比如設10px 會是10px的線 10px的空白 再10px線 再10px空白
+                        // stroke-dasharray = '10' 虛線長10，間距10，然後重複 虛線長10，間距10
+                        // stroke-dasharray = '10, 5'虛線長10，間距5，然後重複 虛線長10，間距5
+                        // stroke-dasharray = '20, 10, 5'虛線長20，間距10，虛線長5，接著是間距20，虛線10，間距5，之後開始如此迴圈
+                        stroke-dashoffset: calc(440 - (440 * var(--num))/100)
+                    }
+                }
+            }
+           }
+        }
+    }
+}

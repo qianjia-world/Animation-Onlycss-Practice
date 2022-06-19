@@ -1,0 +1,19 @@
+.linkBox{
+    position: absolute;
+    top: 40px;
+    ul{
+        display: flex;
+        li{
+            padding: 20px;
+            list-style: none;
+            background-color: antiquewhite;
+            a:visited{
+                color: #2a2a2a;
+            }
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+
+}

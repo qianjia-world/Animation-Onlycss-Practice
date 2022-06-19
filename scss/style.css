@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.animation1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #1d2b3a;
+}
+.animation1 .inputBox {
+  position: relative;
+  width: 250px;
+}
+.animation1 .inputBox > input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: #1d2b3a;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+}
+.animation1 .inputBox > span {
+  position: absolute;
+  left: 0;
+  padding: 11.25px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+.animation1 .inputBox input:valid ~ span, .animation1 .inputBox input:focus ~ span {
+  color: #00dfc4;
+  transform: translateX(15px) translateY(-7px);
+  transition: 0.5s;
+  font-size: 0.65em;
+  padding: 0 10px;
+  background-color: #1d2b3a;
+  border-left: 1px solid #00dfc4;
+  border-right: 1px solid #00dfc4;
+  letter-spacing: 0.2em;
+}
+.animation1 .inputBox:nth-child(2) input:valid ~ span, .animation1 .inputBox:nth-child(2) input:focus ~ span {
+  background-color: #00dfc4;
+  color: #1d2b3a;
+  border-radius: 5px;
+}
+.animation1 .inputBox input:valid, .animation1 .inputBox input:focus {
+  border: 1px solid #00dfc4;
+}
+
+.animation2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
+}
+.animation2 .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.animation2 .container .card {
+  position: relative;
+  width: 220px;
+  height: 250px;
+  background: #2a2a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.animation2 .container .card .percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+.animation2 .container .card .percent .dot {
+  position: absolute;
+  inset: 5px;
+  z-index: 10;
+}
+.animation2 .container .card .percent .dot::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: translateX(-50%);
+  background-color: var(--clr);
+  border-radius: 50%;
+  top: -5px;
+  left: 50%;
+}
+.animation2 .container .card .percent svg {
+  position: relative;
+}
+.animation2 .container .card .percent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 2;
+  stroke: #191919;
+  transform: translate(5px, 5px);
+}
+.animation2 .container .card .percent svg circle:nth-child(2) {
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - 440 * var(--num) / 100);
+}
+
+.linkBox {
+  position: absolute;
+  top: 40px;
+}
+.linkBox ul {
+  display: flex;
+}
+.linkBox ul li {
+  padding: 20px;
+  list-style: none;
+  background-color: antiquewhite;
+}
+.linkBox ul li a:visited {
+  color: #2a2a2a;
+}
+.linkBox ul li a {
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */
