@@ -6,7 +6,6 @@
 }
 
 .animation1 {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,26 +87,12 @@
   position: relative;
   width: 150px;
   height: 150px;
-  transform: rotate(270deg);
-}
-.animation2 .container .card .percent .dot {
-  position: absolute;
-  inset: 5px;
-  z-index: 10;
-}
-.animation2 .container .card .percent .dot::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  transform: translateX(-50%);
-  background-color: var(--clr);
-  border-radius: 50%;
-  top: -5px;
-  left: 50%;
 }
 .animation2 .container .card .percent svg {
   position: relative;
+  transform: rotate(270deg);
+  width: 150px;
+  height: 150px;
 }
 .animation2 .container .card .percent svg circle {
   width: 100%;
@@ -121,6 +106,92 @@
   stroke: var(--clr);
   stroke-dasharray: 440;
   stroke-dashoffset: calc(440 - 440 * var(--num) / 100);
+  opacity: 0;
+  -webkit-animation: fadeIn 1s linear forwards;
+          animation: fadeIn 1s linear forwards;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animation2 .container .card .percent .dot {
+  position: absolute;
+  inset: 5px;
+  z-index: 10;
+  transform: rotate(calc(3.6deg * var(--num)));
+  -webkit-animation: animateDot 2s linear none;
+          animation: animateDot 2s linear none;
+}
+@-webkit-keyframes animateDot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(calc(3.6deg * var(--num)));
+  }
+}
+@keyframes animateDot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(calc(3.6deg * var(--num)));
+  }
+}
+.animation2 .container .card .percent .dot::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--clr);
+  box-shadow: 0 0 10px var(--clr);
+}
+.animation2 .container .number {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  -webkit-animation: fadeIn 1s linear forwards;
+          animation: fadeIn 1s linear forwards;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+.animation2 .container .number h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2.5em;
+}
+.animation2 .container .number h2 span {
+  font-weight: 300;
+  color: #fff;
+  font-size: 0.5em;
+}
+.animation2 .container .number p {
+  font-weight: 300;
+  font-size: 0.75em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .linkBox {
